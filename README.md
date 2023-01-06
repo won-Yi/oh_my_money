@@ -1,7 +1,7 @@
 ![header](https://capsule-render.vercel.app/api?text=Oh!My-%Money!&animation=fadeIn )
 
 ## :star2: 서비스 소개
-- **Oh! My Money **는는 "**나의 소중한 돈을 **" 지키기 위해 지출내역과 메모를 통해 자산을 관리하는 서비스 플랫폼 입니다.
+- **Oh! My Money **는 "**나의 소중한 돈을 **" 지키기 위해 지출내역과 메모를 통해 자산을 관리하는 서비스 플랫폼 입니다.
 
   "내 돈이 어디갔지? 하시는 분!"
   <br>
