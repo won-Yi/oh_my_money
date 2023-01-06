@@ -46,7 +46,8 @@
 
 ### API
 
-- [포스트맨 API 명세서](https://documenter.getpostman.com/view/24047799/2s8Z6vaaoD#2e63975f-b955-487a-9904-e93c3b0e8ef7)
+<img width="784" alt="image" src="https://user-images.githubusercontent.com/96399461/211040618-8ea0571c-c577-4883-b391-4b2d1a78c08c.png">
+
   
 
 ### ⚙​ 개발 환경 및 IDE
