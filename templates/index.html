@@ -1,0 +1,125 @@
+<!-- templates/tweet/home.html -->
+
+{% extends 'base.html' %}
+{% block title %}
+    메인페이지
+{% endblock %}
+
+{% block content %}
+    <div class="container timeline-container">
+        <div class="row">
+            <!-- 왼쪽 컬럼 -->
+            <div class="col-md-3">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ user.username }} 님 반갑습니다.</h5>
+
+                    </div>
+                </div>
+            </div>
+            <!-- 오른 쪽 컬럼-->
+            <div class="col-md-7">
+                <!-- 글을 작성 하는 곳 -->
+                <div class="row mb-2">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="media">
+                                    <div class="media-body">
+                                        <h5 class="mt-0">{{user.username}}님의 지출내역을 입력해주세요.</h5>
+                                        <p>
+                                        <form action="/ledger/record/" method="post">
+                                            {% csrf_token %}
+                                            <!-- 금액 & 메모 적는 곳 -->
+                                            <div class="input-group input-group-sm mb-3">
+                                                <span class="input-group-text" id="inputGroup-sizing-sm">금액</span>
+                                                <input type="text" class="form-control" id ="money" name="money" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                                            </div>
+                                            <div class="input-group input-group-sm mb-3">
+                                                <span class="input-group-text" id="inputGroup-sizing-sm">메모</span>
+                                                <input type="text" class="form-control" id = "memo" name="memo" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                                            </div>
+                                            <button type="submit" class="btn btn-success">저장하기</button>
+                                        </form>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                <!-- 작성 된 글이 나오는 곳 -->
+                <div class="row">
+                   
+                    <table class="table">
+                        <thead>
+                          <tr>
+                            <th scope="col">날짜</th>
+                            <th scope="col">지출금액</th>
+                            <th scope="col">메모</th>
+                            <th scope="col">수정/삭제</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                        {% for list in outlay_lists %}
+                          <tr>
+                            <th scope="row">{{ list.created_at | date:'m월 d일'}}</th>
+                            <td>{{ list.money}} 원</td>
+                            <td>{{ list.memo }} 
+                                <!-- Button trigger modal -->
+                                <a href="/ledger/detail/{{ list.id }}/">
+                                    <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                    상세보기
+                                    </button>
+                                </a>
+                            </td>
+
+                            <td>
+                                <!-- Button trigger modal -->
+                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                수정
+                                </button>
+                                <a href="/ledger/delete/{{list.id}}/"><button type="button" class="btn btn-danger">삭제</button></a>
+                                <!-- Modal -->
+                                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                        <div class="modal-body">
+                                            {% csrf_token %}
+                                            <form action="/ledger/update/{{list.id}}/" method="post">
+                                                {% csrf_token %}
+                                                <!-- 금액 & 메모 적는 곳 -->
+                                                <div class="input-group input-group-sm mb-3">
+                                                    <span class="input-group-text" id="inputGroup-sizing-sm">금액</span>
+                                                    <input type="text" class="form-control" id ="update_money" name="update_money" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                                                </div>
+                                                <div class="input-group input-group-sm mb-3">
+                                                    <span class="input-group-text" id="inputGroup-sizing-sm">메모</span>
+                                                    <input type="text" class="form-control" id = "update_memo" name="update_memo" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                                                </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">닫기</button>
+                                            <button type="submit" class="btn btn-primary">수정</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                                </div>
+                            
+                            </td>
+                          </tr>
+                          {% endfor %}
+                        </tbody>
+                      </table>
+                </div>
+            </div>
+            <div class="col-md-2"></div>
+        </div>
+    </div>
+{% endblock %}
