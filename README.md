@@ -21,9 +21,9 @@
 
 ## ****⛓ 기술 스택****
 
-### Backend : <img src="https://img.shields.io/badge/python 3.10.8-3776AB?style=for-the-badge&logo=python&logoColor=white"> <img src="https://img.shields.io/badge/django 4.1.3-092E20?style=for-the-badge&logo=django&logoColor=white"> 
+### Backend : <img src="https://img.shields.io/badge/python 3.8.7-3776AB?style=for-the-badge&logo=python&logoColor=white"> <img src="https://img.shields.io/badge/django 4.15-092E20?style=for-the-badge&logo=django&logoColor=white"> 
 ### Management : <img src="https://img.shields.io/badge/github-181717?style=for-the-badge&logo=github&logoColor=white"> <img src="https://img.shields.io/badge/git-F05032?style=for-the-badge&logo=git&logoColor=white">
-### Database : <img src="https://img.shields.io/badge/mysql 14.5-0000FF?style=for-the-badge&logo=mysql&logoColor=white">
+### Database : <img src="https://img.shields.io/badge/mysql 5.7-0000FF?style=for-the-badge&logo=mysql&logoColor=white">
 
 <br>
 
